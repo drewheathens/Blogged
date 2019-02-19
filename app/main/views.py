@@ -9,9 +9,7 @@ from .forms import *
 @main.route('/')
 #login required
 def index():
-    # if current_user.is_authenticated:
-        # current_user.last_seen = datetime.utcnow()
-        # db.session.commit()
+   
     return render_template('index.html')
 
 @main.route('/', methods=['GET','POST'])
