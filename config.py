@@ -7,7 +7,7 @@ class Config:
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
     UPLOADED_PHOTOS_DEST = 'app/static/photos'
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://evans:meme@localhost/article'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://evans:wewe@localhost/articles'
 
 class ProdConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
@@ -15,7 +15,7 @@ class ProdConfig(Config):
 
 class DevConfig(Config):
 
-    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://evans:meme@localhost/article'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://evans:wewe@localhost/articles'
     DEBUG = True
 
 
