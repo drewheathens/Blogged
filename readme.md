@@ -17,10 +17,11 @@ An app that allows user Login, Create, View, Comment or Delete a comment if need
 ## PROJECT STATUS
  Project still under development.
 
-  ## INSTALLATION AND USAGE
-   clone the project.
-   install virtual environment by <virtualenv virtual>. 
-   run python3.6 manage.py server
+    ## INSTALLATION AND USAGE
+    -clone the project.
+    -install virtual environment by <virtualenv virtual>
+    -change in app_creation models to development 
+    -run python3.6 manage.py server.
 
 
 ## LICENSE
