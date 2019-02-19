@@ -6,7 +6,7 @@ from . import auth
 from .forms import Login,EditProfile, Registration
 from app import db
 from datetime import datetime
-from ..email import *
+# from ..email import *
 # from ..email import mail_message
 
 ##Registration route section
