@@ -24,22 +24,7 @@ class Article(db.Model):
     def retrieve_posts(cls,id):
         article = Article.filter_by(id=id).all()
         return article
-# user
-
-
-    '''
-    this class represent all articles by users.
-    The user_id field is initialized as a foreign key to user.id,
-    which means that it references an id value from the users table
-    '''
-    # tablenametabletablenamenatablenametablenamemedef __init__(self , id, Article, author, comment, url, urlToImage, publishedAt):
-    #     self.id = id
-    #     self.Article = Article
-    #     self.author = author
-    #     self.comment = comment
-    #     self.url = url
-    #     self.urlToImge = urlToImage
-    #     self.publishedAt = publishedAt    comment_id = db.Column(db.Integer, db.ForeignKey('comment.id'))
+  #     self.publishedAt = publishedAt    comment_id = db.Column(db.Integer, db.ForeignKey('comment.id'))
 
 
 
