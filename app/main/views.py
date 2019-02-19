@@ -21,6 +21,7 @@ def home():
         db.session.commit()
         flash('posted live!')
         return redirect(url_for('main.index'))
+        
     posts = Article.retrieve_posts(id).all()
     return render_template("posts.html", title="home page", form = form, posts = posts)
 
