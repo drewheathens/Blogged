@@ -21,7 +21,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         flash('Registration successfull!')
-        # mail_message("Welcome to watchlist","email/welcome_user",user.email,user=user)
+       
 
         return redirect(url_for('auth.login'))
     return render_template('auth/register.html', title='Register', form=form)
