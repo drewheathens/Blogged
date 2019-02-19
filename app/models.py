@@ -20,6 +20,7 @@ class Article(db.Model):
     timestamp = db.Column(db.DateTime,index=True,default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     comment = db.relationship('Comment', backref='article', lazy="dynamic")
+    
     @classmethod
     def retrieve_posts(cls,id):
         article = Article.filter_by(id=id).all()
@@ -61,6 +62,7 @@ class User(UserMixin, db.Model):
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))
+
     def save_user(self):
         db.session.add(self)
         db.session.commit()
