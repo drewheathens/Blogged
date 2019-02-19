@@ -15,9 +15,7 @@ class Registration(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     password_confirm = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Sign Up')
-    '''
-    custom validators
-    '''
+    
     def validate_username(self,username):
         user = User.query.filter_by(username=username.data).first()
         if user is not None:
