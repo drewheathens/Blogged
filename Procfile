@@ -1,1 +1,1 @@
-web gunicorn app:Blogged
+web gunicorn app:blog-itup
