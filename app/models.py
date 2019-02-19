@@ -20,7 +20,7 @@ class Article(db.Model):
     timestamp = db.Column(db.DateTime,index=True,default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     comment = db.relationship('Comment', backref='article', lazy="dynamic")
-    
+
     @classmethod
     def retrieve_posts(cls,id):
         article = Article.filter_by(id=id).all()
@@ -40,7 +40,7 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(130))
     Article = db.relationship('Article', backref='author', lazy='dynamic')
     # bio = db.Column(db.String(255))
-    # profile_pic = db.Column(db.String(255))
+    #ofile_pic = db.Column(db.String(255))
     Article = db.relationship('Article',backref = 'user',lazy = "dynamic")
     comment = db.relationship('Comment', backref='user', lazy="dynamic")
 
