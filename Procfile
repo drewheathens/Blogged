@@ -1,1 +1,1 @@
-web gunicorn app:blog-itup
+web gunicorn manage:app
