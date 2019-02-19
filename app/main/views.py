@@ -15,13 +15,14 @@ def index():
 @main.route('/', methods=['GET','POST'])
 def home():
     form = posts()
+
     if form.validate_on_submit():
         post = article(body=form.post.data, author = current_user, category = form.category.data)
         db.session.add(post)
         db.session.commit()
         flash('posted live!')
         return redirect(url_for('main.index'))
-        
+
     posts = Article.retrieve_posts(id).all()
     return render_template("posts.html", title="home page", form = form, posts = posts)
 
@@ -48,7 +49,6 @@ def post():
 
 @main.route('/user/<username>')
 @login_required
-
 def user_profile(username):
 
     user = User.query.filter_by(username=username).first_or_404()
