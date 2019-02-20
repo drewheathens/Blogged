@@ -108,13 +108,13 @@ def explore():
 @main.route('/comments/<int:id>', methods = ['GET','POST'])
 @login_required
 def new_comment(id):
-    comment = Comments.query.filter_by(blogs_id=id).all()
+    comment = Comments.query.filter_by(user_id=id).all()
 
     form_comment = CommentForm()
     if form_comment.validate_on_submit():
         details = form_comment.details.data
 
-        new_comment = Comments(details = details,blogs_id=id,user=current_user)
+        new_comment = Comments(details = details,user_id=id,user=current_user)
         # # save comment
         db.session.add(new_comment)
         db.session.commit()
