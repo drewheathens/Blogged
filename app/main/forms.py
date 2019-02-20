@@ -3,12 +3,11 @@ from wtforms import StringField,SubmitField, SelectField,TextAreaField
 from wtforms.validators import ValidationError, DataRequired
 
 
-class Post(FlaskForm):
+class PostForm(FlaskForm):
     post = TextAreaField(('blog something'), validators=[DataRequired()])
-    category = SelectField('Category', choices=[('Articles','Articles')])
-
+    category = SelectField('Category', choices=[('Technology','Technology'),('Sales','Sales')])
     submit = SubmitField(('Submit'))
 
-class Comment(FlaskForm):
+class CommentForm(FlaskForm):
     details = StringField('Write a comment',validators=[DataRequired()])
     submit = SubmitField('Comment')
