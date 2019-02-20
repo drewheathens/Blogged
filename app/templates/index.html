@@ -2,28 +2,26 @@
 
 
 {% block content %}
-<body style="background-image: url('../static/1.png'); background-repeat: no-repeat;">
-  <div class="container">
+<body >
     <div id="pageintro" class="hoc clear">
       <article>
-        <p>Blog it Up</p>
+        <p>Welcome to Blog-it-up.</p>
         <footer>
             {%if current_user.is_authenticated %}
 
           <ul class="nospace inline pushright">
-            <li><a class="btn" href="/posts">Recent blogs</a></li>
-            <li><a class="btn" href="/posts/{{current_user.id}}">My blog(s)</a></li>
+            <li><a class="btn" href="/post">View blogs</a></li> 
+            <li><a class="btn" href="/post/{{current_user.id}}">My blogs</a></li> 
 
             {% else%}</ul>
             <ul class="nospace inline pushright">
-                <li><a href="/posts">Go To Blogs</a></li>
+                <li><a class="btn" href="/post">View blogs</a></li> 
 
-            <li><a href="{{url_for('auth.register')}}">Join Blogged</a></li>
+            <li><a class="btn inverse" href="{{url_for('auth.register')}}">Join blog today</a></li>
           </ul>{%endif %}
         </footer>
       </article>
     </div>
-  </div>
 </body>
 
 
