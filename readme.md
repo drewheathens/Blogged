@@ -23,6 +23,8 @@ An app that allows user Login, Create, View, Comment or Delete a comment if need
     -change in app_creation models to development 
     -run python3.6 manage.py server.
 
+    https://blogevansme.herokuapp.com/
+
 
 ## LICENSE
 
