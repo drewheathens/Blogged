@@ -4,6 +4,7 @@ class Config:
     MAIL_SERVER ='smtp.googlemail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
+    API_BASE_URL='http://quotes.stormconsultancy.co.uk/{}.json'
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
     UPLOADED_PHOTOS_DEST = 'app/static/photos'
@@ -11,7 +12,7 @@ class Config:
 
 class ProdConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
-    
+
 
 class DevConfig(Config):
 

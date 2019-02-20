@@ -5,6 +5,16 @@ from app.models import User,Blog,Comments
 from datetime import datetime
 from app import db, photos
 from .forms import PostForm,CommentForm
+from ..requests import get_quotes
+
+
+@main.route('/quotes', methods=['GET','POST'])
+def quotes():
+    quotes = get_quotes()
+    print (quotes)
+
+    return render_template('quotes.html',quotes = quotes)
+
 
 @main.before_request
 def before_request():
@@ -28,7 +38,7 @@ def index():
 def home():
     form = PostForm()
     if form.validate_on_submit():
-        post = Blog(body=form.post.data, author=current_user, category=form.category.data)
+        post = Pitch(body=form.post.data, author=current_user, category=form.category.data)
         db.session.add(post)
         db.session.commit()
         flash('Your post is now live!')
@@ -48,9 +58,9 @@ def post():
        user = current_user
 
 
-       new_blog = Blog(body = post,category = category,user = user)
+       new_pitch = Pitch(body = post,category = category,user = user)
 
-       # save Blog
+       # save pitch
        db.session.add(new_blog)
        db.session.commit()
 
@@ -101,20 +111,20 @@ def technolog():
 @main.route('/explore')
 @login_required
 def explore():
-    posts = Blog.query.order_by(Blog.timestamp.desc()).all()
+    posts = Blog.query.order_by(Pitch.timestamp.desc()).all()
     return render_template('posts.html', title='Explore', posts=posts)
 
 
 @main.route('/comments/<int:id>', methods = ['GET','POST'])
 @login_required
 def new_comment(id):
-    comment = Comments.query.filter_by(user_id=id).all()
+    comment = Comments.query.filter_by(blogs_id=id).all()
 
     form_comment = CommentForm()
     if form_comment.validate_on_submit():
         details = form_comment.details.data
 
-        new_comment = Comments(details = details,user_id=id,user=current_user)
+        new_comment = Comments(details = details,blogs_id=id,user=current_user)
         # # save comment
         db.session.add(new_comment)
         db.session.commit()

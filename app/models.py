@@ -96,4 +96,13 @@ class Comments(db.Model):
     blog_id = db.Column(db.Integer,db.ForeignKey('blogs.id'))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
+class Quote:
+    '''
+    Quote class to define Quote Objects
+    '''
 
+    def __init__(self,id,author,quote):
+        self.id =id
+        self.author = author
+
+        self.quote = quote
