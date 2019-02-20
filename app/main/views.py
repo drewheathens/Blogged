@@ -6,6 +6,7 @@ from datetime import datetime
 from app import db, photos
 from .forms import PostForm,CommentForm
 from ..requests import get_quotes
+<<<<<<< HEAD
 
 
 @main.route('/quotes', methods=['GET','POST'])
@@ -15,12 +16,20 @@ def quotes():
 
     return render_template('quotes.html',quotes = quotes)
 
+=======
+>>>>>>> master
 
 @main.before_request
 def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
+@main.route('/quotes', methods=['GET','POST'])
+def quotes():
+    quotes = get_quotes()
+    print (quotes)
+
+    return render_template('quotes.html',quotes = quotes)
 
 @main.route('/')
 # @login_required
